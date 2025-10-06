@@ -80,18 +80,18 @@ shopping-cart/
 
 ⚙️ Installation & Setup
 
-1. Clone the repository
+Clone the repository
 
 git clone https://github.com/yourusername/shopping-cart.git
 cd shopping-cart
 
 
-2. Install dependencies
+Install dependencies
 
 npm install
 
 
-3. Run the project
+Run the project
 
 npm run dev
 
