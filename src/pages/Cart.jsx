@@ -3,9 +3,10 @@ import {Link, useNavigate} from 'react-router-dom';
 import { ProductContext } from '../context/ProductContext';
 import { MdShoppingCart } from "react-icons/md";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
+import { CiCirclePlus } from "react-icons/ci";
 
 export default function Cart(){
-    const {cart, invoice, removeCart, setCart, setInvoice} = useContext(ProductContext);
+    const {cart, invoice, removeCart, setCart, setInvoice, addCart} = useContext(ProductContext);
     const navigate = useNavigate();
     const placedOrder = () => {
         setCart([]);
@@ -20,7 +21,7 @@ export default function Cart(){
                    {
                     cart.map(product => {
                         return(
-                            <div key={product.id} className='shadow-md p-4 flex items-center justify-between gap-4'>
+                            <div key={product.id} className='shadow-md p-4 flex items-center justify-between gap-1'>
                                 <img src={product.image} className='w-[120px] h-[120px] object-contain'/>
                                 <div className='flex flex-col gap-2 w-2/6'>
                                     <p className='font-bold'>{product.name}</p>
@@ -28,6 +29,7 @@ export default function Cart(){
                                 </div>
                                 <p className='font-semibold'>${product.price}</p>
                                 <IoIosRemoveCircleOutline className='text-red-600 text-2xl cursor-pointer' onClick={() => removeCart(product)}/>
+                                <CiCirclePlus className='text-red-600 text-2xl cursor-pointer' onClick={() => addCart(product)}/>
                             </div>
                         )
                     })

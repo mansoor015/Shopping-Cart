@@ -6,7 +6,10 @@ export const ProductContext = createContext([]);
 export const ProductContextProvider = ({children}) => {
 
     const[products, setProducts] = useState(products_data)
-    const[cart, setCart] = useState([])
+    const [cart, setCart] = useState(() => {
+        const savedCart = localStorage.getItem("cart");
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
     const[invoice, setInvoice] = useState({count:0, subTotal:0})
     const[message, setMessage] = useState('')
 
@@ -75,6 +78,7 @@ export const ProductContextProvider = ({children}) => {
     useEffect(() => {
         const timeout = setTimeout(() => {setMessage('')}, 1000);
         setInvoiceData();
+        localStorage.setItem("cart", JSON.stringify(cart));
         return () => clearTimeout(timeout);
     }, [cart])
 
