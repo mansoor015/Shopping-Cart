@@ -56,7 +56,7 @@ LocalStorage	           To persist cart data across page refreshes
 
 1. Clone the repository
 
-• git clone https://github.com/yourusername/shopping-cart.git
+• https://github.com/mansoor015/Shopping-Cart.git
 • cd shopping-cart
 
 
